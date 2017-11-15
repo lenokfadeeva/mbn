@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title></title>
+</head>
+
+<body>
+    <div class="container">
+    <h1 class="font-effect-shadow-multiple">Hello, {{main.username}}!</h1>
+    <br><br>
+        <p>This is your personal page.<br>
+        You can check here your personal data.<br>
+        If there is some change, you can correct it.<br>
+        Push the Change button.<br>
+        Good luck!!!</p>
+        <div id="person">
+        <ul ng-repeat="person in userpage.user">
+          <li>Name: {{person.name}}</li>
+          <li>E-mail: {{person.email}}</li>
+          <li>City: {{person.city}}</li>
+          <li>Phone: {{person.phone}}</li>
+          <li>Age: {{person.age}}</li>
+          <li>Experiense: {{person.experience}}</li><br><br>
+          <li>
+            <a href="/edit/{{person._id}}">
+                    <button type="button" ng-click="userpage.editAccess" class="btn btn-success">Change</button>
+                </a>
+          </li>
+        </ul>   
+        </div>
+    
+</div>
+</body>
+</html>

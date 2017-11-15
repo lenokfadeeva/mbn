@@ -1,0 +1,90 @@
+<div class="container">
+    <h1  class="font-effect-shadow-multiple">Hello, {{main.username}}!</h1>
+    <br><br>
+    <div class="card text-center" id="edit">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item" id="editheader">
+                <a class="nav-link" ng-click="edit.namePhase();" ng-class="nameTab" href="#">Name</a>
+            </li>       
+          <li class="nav-item"  >
+            <a class="nav-link"ng-click="edit.usernamePhase();" ng-class="usernameTab" href="#">Username</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" ng-click="edit.emailPhase();" ng-class="emailTab" href="#">E-mail</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" ng-click="edit.phonePhase();" ng-class="phoneTab" href="#">Phone</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" ng-click="edit.agePhase();" ng-class="ageTab" href="#">Age</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" ng-click="edit.experiencePhase();" ng-class="experienceTab" href="#">Experience</a>
+          </li>
+        </ul>
+      </div>
+      
+        <div class="card-body">
+        <form name="edit.nameForm" ng-show="edit.phase1" ng-submit="edit.updateName(newName, edit.nameForm.name.$valid)" novalidate>
+            
+            <input ng-disabled="edit.disabled" class="form-control" type="text" name="name" ng-model="newName" required><br>
+           
+        <button ng-disabled="edit.disabled" class="btn btn-success" type="submit">Update</button>
+        
+        </form> 
+      
+        <form name="edit.usernameForm" ng-show="edit.phase2" ng-submit="edit.updateUsername(newUsername, edit.usernameForm.username.$valid)" novalidate>
+        
+            <input ng-disabled="edit.disabled" class="form-control" type="text" name="username" ng-model="newUsername" required><br>
+           
+        <button ng-disabled="edit.disabled" class="btn btn-success" type="submit">Update</button>
+        
+        </form>
+    
+        <form name="edit.emailForm" ng-show="edit.phase3" ng-submit="edit.updateEmail(newEmail, edit.emailForm.email.$valid)" novalidate>
+        
+            <input ng-disabled="edit.disabled" class="form-control" type="text" name="email" ng-model="newEmail" required><br>
+           
+        <button ng-disabled="edit.disabled" class="btn btn-success" type="submit">Update</button>
+        
+        </form>
+            
+        <form name="edit.phoneForm" ng-show="edit.phase4" ng-submit="edit.updatePhone(newPhone, edit.phoneForm.phone.$valid)" novalidate>
+        
+            <input ng-disabled="edit.disabled" class="form-control" type="text" name="phone" ng-model="newPhone" required><br>
+           
+        <button ng-disabled="edit.disabled" class="btn btn-success" type="submit">Update</button>
+        
+        </form>
+            
+        <form name="edit.ageForm" ng-show="edit.phase5" ng-submit="edit.updateAge(newAge, edit.ageForm.age.$valid)" novalidate>
+        
+            <input ng-disabled="edit.disabled" class="form-control" type="text" name="age" ng-model="newAge" required><br>
+           
+        <button ng-disabled="edit.disabled" class="btn btn-success" type="submit">Update</button>
+        
+        </form>
+            
+        <form name="edit.experienceForm" ng-show="edit.phase6" ng-submit="edit.updateExperience(newExperience, edit.experienceForm.experience.$valid)" novalidate>
+        
+            <input ng-disabled="edit.disabled" class="form-control" type="text" name="experience" ng-model="newExperience" required><br>
+           
+        <button ng-disabled="edit.disabled" class="btn btn-success" type="submit">Update</button>
+        
+        </form>   
+        <br><br>
+            
+        </div>
+       
+    </div>
+    <br><br>
+    <div class="row show-hide-message" ng-show="edit.successMsg">
+        <div class="alert alert-success">{{edit.successMsg}}</div>
+    </div>
+    
+    <div class="row show-hide-message" ng-show="edit.errorMsg">
+        <div class="alert alert-danger" >{{edit.errorMsg}}</div>
+    </div>
+</div>
+

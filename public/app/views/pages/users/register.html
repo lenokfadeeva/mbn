@@ -1,0 +1,77 @@
+<div class="container">
+<div class="page-header">
+    <h1 class="font-effect-shadow-multiple">User Registration</h1>
+</div>
+    
+<form name="regForm" ng-submit="register.regUser(regData, regForm.$valid);" novalidate>
+    <div>
+        <label>Name</label>
+        <input class="form-control" type="text" name="name" ng-model="register.regData.name" ng-pattern="/^(([a-zA-Z]{3,20})+[ ]+([a-zA-Z]{3,20})+)+$/" ng-minlength="3" ng-maxlength="30" required>
+        <p class="form-text text-danger" ng-show="(!regForm.name.$pristine && regForm.name.$error.required) || (regForm.name.$submitted && regForm.name.$error.required) || (!regForm.name.$pristine && regForm.name.$error.pattern) || (!regForm.name.$pristine && regForm.name.$error.minlength) || (!regForm.name.$pristine && regForm.name.$error.maxlength)">
+        Must have a space in between first and last name<br>
+        Must not contain any special characters and numbers<br>
+        Must be at least 3 charecters, but no more than 30</p>
+    </div>
+    <br>
+    
+    <div>
+        <label>Username</label>
+        <input class="form-control" type="text" name="username" ng-model="register.regData.username" ng-pattern="/^(?!.*?[\W])(?=.*?[a-zA-Z]|=.*?[A-Z]).{3,16}$/" ng-minlength="3" ng-maxlength="30" required>
+        <p class="form-text text-danger" ng-show="(!regForm.username.$pristine && regForm.username.$error.required) || (regForm.username$submitted && regForm.username.$error.required) || (!regForm.username.$pristine && regForm.username.$error.pattern) || (!regForm.username.$pristine && regForm.username.$error.minlength) || (!regForm.username.$pristine && regForm.username.$error.maxlength)">
+        Must not contain any special characters or spaces<br>
+        Must be at least 3 charecters, but no more than 30</p>
+    </div>
+    <br>
+    
+    <div>
+        <label>Email</label>
+        <input class="form-control" type="text" name="email" ng-model="register.regData.email" ng-pattern="/^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/" ng-minlength="3" ng-maxlength="30" required>
+        <p class="form-text text-danger" ng-show="(!regForm.email.$pristine && regForm.email.$error.required) || (regForm.email.$submitted && regForm.email.$error.required) || (!regForm.email.$pristine && regForm.email.$error.pattern) || (!regForm.email.$pristine && regForm.email.$error.minlength) || (!regForm.email.$pristine && regForm.email.$error.maxlength)">
+        Must contain "@"<br>
+        Must not contain any special characters<br>
+        Must be at least 3 charecters, but no more than 30</p>
+    </div>
+    <br>
+
+    <div>
+        <label>Password</label>
+        <input class="form-control" type="password" name="password" ng-model="register.regData.password"  ng-pattern="/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/" ng-minlength="8" ng-maxlength="35" required>
+        <p class="form-text text-danger" ng-show="(!regForm.password.$pristine && regForm.password.$error.required) || (regForm.password.$submitted && regForm.password.$error.required) || (!regForm.password.$pristine && regForm.password.$error.pattern) || (!regForm.password.$pristine && regForm.password.$error.minlength) || (!regForm.password.$pristine && regForm.password.$error.maxlength)">
+        Must contain at least one upper case an one lower case letter<br>
+        Must contain at least one number and one special charecter<br>
+        Must be at least 8 charecters, but no more than 35</p>
+    </div>    
+    <br>
+
+    <div>
+        <label>City</label>
+        <input class="form-control" type="text" name="city" ng-model="register.regData.city" ng-pattern="/^[a-zA-Z]{3,20}$/" ng-minlength="3" ng-maxlength="20" required>
+        <p class="form-text text-danger" ng-show="(!regForm.city.$pristine && regForm.city.$error.required) || (regForm.city.$submitted && regForm.city.$error.required) || (!regForm.city.$pristine && regForm.city.$error.pattern) || (!regForm.city.$pristine && regForm.city.$error.minlength) || (!regForm.city.$pristine && regForm.city.$error.maxlength)">
+        Must not contain any special characters and numbers<br>
+        Must be at least 3 charecters, but no more than 20</p>
+    </div>
+    <br>
+    
+    <div>
+        <label>I am (choose your status)</label>
+        <select class="custom-select" name="status" ng-model="register.regData.status" required>
+          <option value="parent">parent</option>
+          <option value="nanny">nanny</option>
+        </select>
+        <p class="form-text text-danger" ng-show="(!regForm.status.$pristine && regForm.status.$error.required) || (regForm.status.$submitted && regForm.status.$error.required)">
+        This field is required!</p>
+    </div>
+    <br><br>
+  
+    <button class="btn btn-success btn-lg" type="submit">Register</button>
+</form>
+<br>   
+    
+<div class="row show-hide-message" ng-show="register.successMsg">
+    <div class="alert alert-success">{{register.successMsg}}</div>
+</div>
+    
+<div class="row show-hide-message" ng-show="register.errorMsg">
+    <div class="alert alert-danger" >{{register.errorMsg}}</div>
+</div>
+</div>

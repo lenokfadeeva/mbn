@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title></title>
+</head>
+
+<body>
+    <div class="container">
+    <h1 class="font-effect-shadow-multiple">Our nannies</h1>
+    <br>
+        <div class="form-group row">
+        <label for="serchinput" class="col-sm-2 col-form-label">Search the city:</label>
+        <div class="col-sm-10">
+            <input class="form-control" id="searchinput" type="text" ng-model="searchNanny.city ">
+        </div>  
+        </div>
+            <br>
+        <div class="card" id="card"  ng-repeat="person in shownanny.users | filter:searchNanny">
+            
+            <div class="row">
+                <div class="col-sm-4">
+                    <img class="card-img-top" src="/app/images/avatar-min.jpg" alt="Card image cap">
+                                                                            
+                </div>  
+                <div class="col-sm-8">
+            <div class="card-block" >
+                  <ul>
+                    <li>Name: {{person.name}}</li>
+                    <li>E-mail: <a href="#">{{person.email}}</a></li>
+                    <li>City: {{person.city}}</li>
+                    <li>Telephone №: {{person.phone}}</li>
+                    <li>Age: {{person.age}}</li>
+                    <li>Experience: {{person.experience}} years</li>
+                    <li>Rating: <br>
+                        <div id="reviewStars-input">
+    <input id="star-4" type="radio" name="reviewStars"/>
+    <label title="gorgeous" for="star-4"></label>
+
+    <input id="star-3" type="radio" name="reviewStars"/>
+    <label title="good" for="star-3"></label>
+
+    <input id="star-2" type="radio" name="reviewStars"/>
+    <label title="regular" for="star-2"></label>
+
+    <input id="star-1" type="radio" name="reviewStars"/>
+    <label title="poor" for="star-1"></label>
+
+    <input id="star-0" type="radio" name="reviewStars"/>
+    <label title="bad" for="star-0"></label>
+</div>
+
+        </li>
+                  </ul>
+                </div>
+            </div>
+            </div>
+       </div>
+    
+      
+ <div class="row show-hide-message" ng-show="shownanny.successMsg">
+    <div class="alert alert-success">{{shownanny.successMsg}}</div>
+</div>
+    
+<div class="row show-hide-message" ng-show="shownanny.errorMsg">
+    <div class="alert alert-danger" >{{shownanny.errorMsg}}</div>
+</div>
+</div>
+</body>
+</html>
